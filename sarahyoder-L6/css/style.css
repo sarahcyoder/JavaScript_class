@@ -1,0 +1,22 @@
+body { 
+	background-color: goldenrod;
+	font-family: Arial, sans-serif;
+	font-size: small;
+	width: 450px;
+	margin: auto;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+#userButton {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+	display: inline;
+}
+
+#output {
+	padding:10px;
+}

@@ -1,0 +1,83 @@
+body { 
+	font-family: Arial, sans-serif;
+	font-size: medium;;
+}
+
+h1 {
+	font-size: 175%;
+}
+
+form {
+	padding-bottom: 20px;
+}
+
+#outputText {
+	color: #cc0033;
+	background-color:#CCC;
+	position: absolute;
+	left: 5px;
+	top: 475px;
+}
+
+/*SECTIONS*/
+
+#stopwatchSection {
+	visibility: hidden;
+	position:absolute;
+	left: 5px;
+	top: 225px;
+}
+
+#countdownSection {
+	visibility:  hidden;
+	position:absolute;
+	left: 5px;
+	top: 225px;
+}
+
+/*BUTTONS*/
+#stopwatchButton {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+	display: inline;
+}
+
+#stopwatchReset {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+	display: inline;
+}
+
+#countdownButton {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+	display: inline;
+}
+
+#selectChoice {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+	display: inline;
+}
+
+#debugButton {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+	display: inline;
+	visibility:visible;
+}
+
+/*DISPLAY TIMES*/
+
+#displayStopwatchTime {
+	font-size:large;
+}
+
+#displayCountdownTime {
+	font-size:large;
+}

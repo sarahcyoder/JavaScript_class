@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="stopwatch-countdown.js">
+    </script>
+	<title>Final Project</title>
+		
+</head>
+
+<body>
+	<div id="chooseForm">
+	<form>
+	<h1>Choose a Stopwatch or Countdown Timer</h1>
+    	<input name="choose" id="stopwatch" type="radio" />Stopwatch<br />
+        <input name="choose" id="countdown" type="radio" />Countdown Timer<br />
+        
+	</form>
+    <p id="selectChoice">Choose</p>
+	</div>
+    
+    <div id="stopwatchSection">
+		<h1>Stopwatch</h1>
+			<p id="displayStopwatchTime"><span id="sMinutes">00</span>:<span id="sSeconds">00</span>:<span id="sHundreds">00</span></p>
+			<p id="stopwatchButton">Start</p>
+   			<p id="stopwatchReset">Reset</p>
+	</div>
+    
+    <div id="countdownSection">  
+		<h1>Countdown Timer</h1>
+			<form action="#" method="post" enctype="multipart/form-data" name="userInput" >
+				<input name="userInput" id="userInput" type="text" size="20" placeholder="MM:SS:HH" />
+				<br />
+				Enter your time in minutes:seconds:hundredths (max 10:00:00)
+				</form>
+                <p id="displayCountdownTime"></p>
+				<p id="countdownButton">Start</p>
+           		<br />
+    </div>
+    <br />
+    <br />
+    <div id="debugButton">Debug is on</div>
+        <br />
+        <br />
+    <div id="outputText"></div>
+</body>
+</html>

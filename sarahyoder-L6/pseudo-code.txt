@@ -1,0 +1,37 @@
+PALINDROME TESTER
+
+Get user input for entry from form
+	window.onload will call function to output message to user - outputMessage() - on click of element with id "userButton"
+
+
+outputMessage() function will create and output to user var computerMessage, which will be the return of testPalindrome(userInput) function
+
+
+Alert user of entry validity and, if it's valid, test if entry is a palindrome with testPalindrome() function
+	Create var result
+	Create var validMessage, which will be the return of testInput() function
+
+		If validMessage is true, result = "Your input is valid."
+		If validMessage is false, result = "Your input is not valid." Return (result) to prevent call of reverseInput() function (test of palindrome).
+
+	Create var reversedUserInput, which will be the return of reverseInput() function
+
+		if reversedUserInput = userInput, add "Your input is a palindrome" to result.
+		Otherwise add "Your input is not a palindrome" to result.
+	return (result)
+
+
+Test validity of entry with testInput() function
+	Create var validInput
+	if userInput.length is greater than 10 or equal to 0, validInput is false
+	otherwise, validInput is true
+	return(validInput)
+
+
+Reverse user input with reverseInput()
+	Create var inputBackward and set value to ""
+	Create var i to count loops
+
+	Start loop with i set to the character length of the user entry, run the loop until we run out of characters, and decrement i for each pass of the loop
+	Add the i-th character of userInput to inputBackward with each pass of the loop
+	return(inputBackward)

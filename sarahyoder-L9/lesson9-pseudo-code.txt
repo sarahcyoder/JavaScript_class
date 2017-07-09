@@ -1,0 +1,70 @@
+window.onload() will
+	1. Call function to output date to user - addDateOutput(outputDate) - on click of element with id "processDate". Set the outputDate argument to the user's input from the form field with id "dateUserInput"
+	2. Call function to output number to user - addNumberOutput(outputNumber) - on click of element with id "processNumber". Set the outputNumber argument to the user's input from the form field with id "integerUserInput"
+	3. Call function to output text to user - addTextOutput(textOne, textTwo) - on click of element with id "processText". Set the arguments to the user's input from the form fields with id "textUserInputOne" and "textUserInputTwo"
+
+
+DATE FIELD
+
+function addDateOutput(outputDate) will test date input and output date info 
+
+	Create var dateInput and set it to the user's date input from field id "dateUserInput"
+	Create var regex and set it to /^\d{2}\/\d{2}\/\d{4}$/
+
+	Create var todaysDate and set it to new Date()
+	Create var month and set it to current month
+	Create var day and set it to today's date
+
+	if month<10, add a 0 before the month number
+	if day<10, add a 0 before the date number
+
+	Create var todaysDateFormatted and set to month/day/current year
+
+	Create var difference and set it to result of function daysBetween(todaysDate, dateInput)
+
+	IF regex.test(dateInput) is true
+		Output todaysDateFormatted, outputDate, and string to write the number of days between those days (with var difference) to the HTML element with id "outputFormattedDate"
+	ELSE return error message to that HTML element
+
+
+function daysBetween(today, dateInput) will calculate the number of days between input date and today
+
+	Create var dateInput and set it to the user's date input from field id "dateUserInput"
+	Create var reformattedUserDate and format dateInput so that it can be converted into milliseconds (xxxx,xx,xx)
+
+	Create var input and set it to the result of new Date(reformattedUserDate), which will be the number of milliseconds since dateInput and Jan 1, 1970
+	Create var todaysDate and set it to a new date object of today, which will be the number of milliseconds since today and Jan 1, 1970
+	Create var oneDay and set it to the number of milliseconds in one day
+	Create var difference and set it equal to todaysDate - input, rounded to the nearest integer with math.round and returning the absolute value to avoid negatives with math.abs
+
+	Return(difference)
+
+
+NUMBER FIELD
+
+function addNumberOutput(outputNumber) will validate number input and output random number
+
+	Create var numberInput and set it to the user's input from the "integerUserInput" field id
+	Create var randonmNumberOutput and set it to the result of the function randomNumber(numberInput)
+
+	Create var regex and set it to /^\d{1,2}$/
+
+	IF regex.test(numberInput) is true and numberInput is greater than 9, write randomNumberOutput to the HTML element with id "outputRandomInteger"
+	ELSE return error message to that HTML element
+
+
+function randomNumber(maxNumber)
+	
+	Create var maxNumber and set it to the user's input from the "integerUserInput" field id
+	Create var randomNumberOutput and set it to a random number from 10 to maxNumber. User math.random() to generate a random number between 0 and 1. Multiply that number by (maxNumber-10+1) so that the range is inclusive of maxNumber, and then add 10 to make that the bottom. Use math.floor to round the result down to the nearest integer.
+
+
+TEXT FIELDS
+
+function addTextOutput(textOne, textTwo) will test if the string entered into text field one is a substring of the string entered into text field 2
+
+	Create var textOne and set it to the user input from "textUserInputOne" field
+	Create var textTwo and set it to the user input from "textUserInputTwo" field
+	
+	IF textTwo.includes(textOne) is true, write to HTML element with id "outputTextMessage" that textOne is a substring of textTwo
+	ELSE, write to HTML element that textOne is NOT a substring of textTwo

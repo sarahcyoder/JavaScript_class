@@ -1,0 +1,25 @@
+NUMBER GUESSING GAME
+
+Get user input for number from form
+	Trigger guessNumber() with onClick() event
+
+Pass numberInput to guessNumber()
+
+	if numberInput > 999 || numberInput < 1, then alert with "That's not an integer from 1 to 999"
+	if numberInput % 0 != 0, then alert with "That's not an integer"
+
+Create var guess array with 10 values
+Create var loopOutput to list computer's guesses
+
+Start loop with x set to zero, run the loop until we run out of guesses from the array, and increment x by 1 for each pass of the loop.
+	Create variable guessOutput to print if guess is too high, too low, or correct
+
+	if guess > numberInput, guessOutput = "My guess is too high"
+	if guess < numberInput, guessOutput = "My guess is too low"
+	if guess == numberInput, guessOutput = "I got it right", create var computerWins and set it to true, and alert "The computer has won"
+
+For each pass of the loop, add to loopOutput "Guess (x + 1) = guess[x] + <br/ > + guessOutput"
+
+Print loopOutput into HTML element id listGuesses within <p> tags
+
+At the end of the loop, if computerWins != true, then alert "The user has won"

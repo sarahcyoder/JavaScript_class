@@ -1,0 +1,109 @@
+window.onload()
+	1. Call function to turn debugMode on and off on click of element with id "debugButton."
+		If debugMode is true, clicking the element will change it to false, change the element text to "Debug is off," and clear the innerHTML of element with id "outputText."
+		Else, clicking the element will change debugMode to true and change the element text to "Debug is on."
+
+	2. Call function chooseType() to select stopwatch or countdown with click of element id "selectChoice."
+
+	3. Call function stopwatchButton() to start or pause stopwatch on click of element with id "stopwatchStart"
+
+	4. Call function resetStopwatch() to reset stopwatch on click of element with id "stopwatchReset"
+
+	5. Call function countdownButton() to start or pause countdown on click of element with id "countdownButton"
+
+end window.onload
+
+
+Create global var debugMode and set to true.
+
+
+function chooseType()
+	If form element "countdown" is checked, make countdown section visible and stopwatch section hidden
+		If debug mode is true, document button click and function call to element with id "outputText"
+	Else if form element "stopwatch" is checked, make stopwatch section visible and countdown section hidden
+		If debug mode is true, document button click and function call to element with id "outputText"
+
+
+
+STOPWATCH
+Create global var startS and set to true
+Create global var stopwatchRun
+
+Create global vars sHundreds, sSeconds, sMinutes and set all to 0.
+
+
+function stopwatchButton()
+	If startS is true, use stopwatchRun = setInteval to call startStopwatch every 10 milliseconds. Set startS to false and change text on element with id "stopwatchButton" to "Pause".
+		If debugMode is true, document stopwatch button click and function call to "outputText"
+	Else, clearInterval(stopwatchRun), set startS to true, and change text on element with id "stopwatchButton" to "Start".
+		If debugMode is true, document stopwatch button click and function call to "outputText"
+
+
+function startStopwatch()
+	Create vars displaySHundreds, displaySSeconds, displaySMinutes, and set them to corresponding elements with ids "sHundreds", "sSeconds", and "sMinutes"
+
+	Increment sHundreds
+	
+	If sHundreds < 10, displaySHundreds.innerHTML = "0" + sHundreds. Else, displaySHundreds.innerHTML = sHundreds
+	If sHundreds > 99, change sHundreds to 0, displaySHundreds.innerHTML = "0" + 0, and increment sSeconds
+
+	If sSeconds < 10, displaySSeconds.innerHTML = "0" + sSeconds. Else, displaySSeconds.innerHTML = sSeconds
+	If sSeconds > 59, change sSeconds to 0, displaySSeconds.innerHTML = "0" + 0, and increment sMinutes
+
+	If sMinutes < 10, displaySMinutes.innerHTML = "0" + sMinutes. Else, displaySMinutes.innerHTML = sMinutes
+
+
+function resetStopwatch()
+	clearInterval(stopwatchRun)
+	Set sHundreds, sSeconds, sMinutes to 0, and display "00" in their corresponding elements in document
+	Set startS to true
+	Change element with id "stopwatchButton" text to "Start"
+	If debugMode is true, document reset button click and function call to "outputText"
+
+
+
+COUNTDOWN
+Create global var StartC and set to true.
+Create global var countdownRun
+Create global var countdownState and set to null.
+
+function countdownButton()
+	Create var userTime and set to input from form
+
+	If startC is true, do one of two things.
+		1. If countdownState == null, call validateInput function to check userTime. Set startC to false. Set countdownState to true. Use countdownRun = setInterval to call startCountdown every 10 milliseconds. Change text on element with id "countdownButton" to "Pause." Set vars cMinutes, cSeconds, and cHundreds to their respective input digits from userTime.
+			If debugMode is true, document first countdown button click and function call to "outputText".
+		2. Else, use countdownRun = setInterval to call startCountdown every 10 milliseconds. Change text on element with id "countdownButton" to "Pause.
+			If debugMode is true, document countdown button click and function call to "outputText".
+
+	Else, clearInterval(countdownRun), Change text on element with id "countdownButton" to "Start", set startC to true.  If debugMode is true, document countdown button click and function call to "outputText".
+
+function startCountdown()
+	Create vars displayCHundreds, displayCSeconds, displayCMinutes
+
+	Decrement cHundreds.
+
+	if cHundreds < 0, cHundreds = 99 and decrement cSeconds.
+	if cSeconds < 0, cSeconds = 59 and decrement cMinutes.
+
+	if cHundreds < 10, displayCHundreds = "0" + cHundreds. Else displayCHundreds = cHundreds
+	same with cSeconds/displayCSeconds
+	same with cMinutes/displayCMinutes
+
+	Write displayCMinutes:displayCSeconds:displayCHundreds in element with id "displayCountdownTime"
+
+	if displaycMinutes, displaycSeconds, displayCHundreds are all less than 0, alert "Time is up", clearInterval(countdownRun), set countdownState to null, set startC to true, and change element id "countdownButton" text to "Start."
+
+	
+function validateInput(startTime)
+	create var regex and set to /^[0-1][0-9]:[0-5][0-9]:[0-9][0-9]$/
+	
+	If regex.test(startTime) is true:
+		If the 4th and 5th digits of startTime add up to more than 59, alert that the user should enter 59 or fewer seconds. Return false.
+			If debugMode is true, document that the user's input had too many seconds in element with id "outputText".
+		Else if the first 2 digits of startTime add up to more than 9 and the rest of the digits add up to greater than 0 OR if the first 2 digits of startTime add up to more than 10, alert that max input time is 10 minutes. Return false.
+			If debugMode is true, document that the user's input was too high in element with id "outputText."
+		Else, return true.
+			If debugMode is true, document that the user's input is correct in element with id "outputText".
+	Else, alert that user's input was not formatted correctly. Return false.
+		If debugMode is true, document that the user's input wasn't formatted correctly in element with id "outputText"

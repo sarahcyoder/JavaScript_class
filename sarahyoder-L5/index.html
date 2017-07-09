@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+		<head>
+		<title>Homework 5</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script type="text/javascript">
+			function guessNumber() { // Function to guess the number input by the user
+				var numberInput = document.getElementById("userInput").value;
+				
+				// begin test for valid input
+				if (numberInput < 1 || numberInput > 999) {
+					alert("Hey! That's not an integer from 1 to 999!");
+					return;
+				}
+				if (numberInput % 1 != 0) {
+					alert("Hey! That's not an integer from 1 to 999!");
+					return;
+				}
+				// end test for valid input	
+			
+				var loopOutput = "";
+				
+				// set default values for bounds of computer's guesses
+				var min = 1;
+				var max = 999;
+								
+				for (i=0; i < 10; i++) { // loop through 10 guesses
+					
+					// generate a random integer between min and max	
+					var guess = Math.floor(Math.random() * (max - min)) + min;
+				
+					var guessOutput = "";
+						
+					if (guess > numberInput) {
+						guessOutput += "My guess is too high!<br />";
+						max = guess;
+					}
+						
+						else if (guess < numberInput) {
+							guessOutput += "My guess is too low!<br/ >";
+							min = guess;
+						}
+							
+							else if (guess == numberInput) {
+								guessOutput += "I got it right!<br/ >";
+								var computerWins = true;
+								alert("The computer has won!"); // Alert user that computer guessed the number
+							} 
+						
+					loopOutput += "Guess " + (i + 1) + " = " + guess + "<br />" + guessOutput + "<br />";
+					
+					if (computerWins == true){
+						break;
+					}
+				} // end guessing loop
+						
+				document.getElementById("listGuesses").innerHTML = "<p>" + loopOutput + "</p>";
+				
+				if (computerWins != true)  // Alert user that she has won
+					alert("The user has won!");
+		
+			} // end of number guessing function
+
+		</script>
+		
+     </head>
+
+	<body>
+    	<h1>Pick a number for me to guess!</h1>
+        <p>If I guess the number correctly in 10 guesses, the computer wins. If I don't, the user wins.</p>
+		<form action="#" method="post" enctype="multipart/form-data" name="numberInput">
+			<input name="userInput" id="userInput" type="text" size="25" />
+			<br />
+			Enter an integer from 1 to 999.
+		</form>
+		<p class="button" onclick="guessNumber();" >Enter Number</p>
+		<br />
+		<h1>Guesses</h1>
+	<div id="listGuesses"></div>
+	</body>
+</html>

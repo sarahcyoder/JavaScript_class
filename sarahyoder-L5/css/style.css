@@ -1,0 +1,31 @@
+body { 
+	background-color: goldenrod;
+	font-family: Arial, sans-serif;
+	font-size: small;
+	width: 450px;
+	margin: auto;
+}
+
+h1 {
+	font-size: 150%;
+}
+
+p {
+	background-color: #cc0033;
+	padding: 10px;
+	color: #ffffff;
+}
+
+/* Left number */
+
+#left {
+	float: left;
+	width: 200px;
+}
+
+/* Right number */
+
+#right {
+	float: right;
+	width: 200px;
+}
